@@ -9,7 +9,7 @@ body {
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: rgb(42, 44, 57, 0.2);
+    background: transparent;
     overflow: auto;
     height: auto;
 }
@@ -84,7 +84,9 @@ body {
     text-align: center;
     padding: 14px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 50px;
+    height: 80px;
+    width: 80px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -652,6 +654,20 @@ body {
 
 .hideIT {
     display: none;
+}
+
+.loading {
+    /* Absolute position */
+    left: 0;
+    position: absolute;
+    top: 0;
+    /* Take full size */
+    height: 100%;
+    width: 100%;
+    /* Center */
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 

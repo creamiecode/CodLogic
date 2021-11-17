@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="{{asset('./assets/css/feathericon.min.css')}}">
     <link rel="stylesheet" href="{{asset('./assets/plugins/morris/morris.css')}}">
     <link rel="stylesheet" href="{{asset('./assets/css/style.css')}}">
-
+   
 
     <script src="{{asset('./assets/js/html5shiv.min.js')}}"></script>
     <script src="{{asset('./assets/js/respond.min.js')}}"></script>

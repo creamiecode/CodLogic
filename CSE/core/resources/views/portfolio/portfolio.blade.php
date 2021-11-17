@@ -130,6 +130,19 @@ function time_elapsed_string($datetime, $full = false) {
 </section>
 
 <section id="iframeSection">
+ 
+  <div class="loader" id="loading">
+    <svg viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <circle class="load one" cx="60" cy="60" r="40" />
+      <circle class="load two" cx="60" cy="60" r="40" />
+      <circle class="load three" cx="60" cy="60" r="40" />
+      <g>
+        <circle class="point one" cx="45" cy="70" r="5" />
+        <circle class="point two" cx="60" cy="70" r="5" />
+        <circle class="point three" cx="75" cy="70" r="5" />
+      </g>
+    </svg>
+  </div>
     <iframe id="frame" name="myFrame" style="width: 100%;height: 100vh;"></iframe>
 </section>
 
@@ -139,11 +152,29 @@ function time_elapsed_string($datetime, $full = false) {
  
 
     {{$pro->links('vendor.pagination.custom')}}
-    <a class="links0" href="" target="myFrame"><i class="icon0 las la-home"></i></a> 
+    <a class="links0" href="" target="myFrame"><i class="icon0 las la-home" style="box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px #000 !important;"></i></a> 
+    
             @foreach($pro as $project)
     
- 
-            <a onclick="buttonClick('iconId{{$project->id}}','<?php echo luminance($project->project_color, 0.5);?>','{{$project->project_link}}')" id="iconId{{$project->id}}" class="ics"  style="background-color: <?php echo luminance($project->project_color, 0.8);?>;border-radius:50%;padding: 7px;,margin-left:10px;margin-right:10px;margin-bottom:25px;text-align:centre"  target="myFrame"><img  src="{{asset('/core/public/post/'.$project->project_icon)}}"> </a>
+            {{-- <a class="position-fixed px-2 py-2" style="box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px #000 !important;border-radius:50%;">
+               <div style="background: url({{asset('/core/public/post/'.$project->project_logo)}}) no-repeat center; height:30px;width:30px;  -webkit-background-size: contain;
+                -moz-background-size: contain;
+                -o-background-size: contain;
+                background-size: contain;"></div>
+            </a> --}}
+            {{-- <div onclick="buttonClick('iconId{{$project->id}}','<?php echo luminance($project->project_color, 0.5);?>','{{$project->project_link}}')" id="iconId{{$project->id}}" class="ics"  style="background-color: #fff;border-radius:50%;padding: 10px;,margin-left:10px;margin-right:10px;margin-bottom:25px;text-align:centre"  target="myFrame">
+              <div style="background: url({{asset('/core/public/post/'.$project->project_logo)}}) no-repeat center; height:30px;width:30px;  -webkit-background-size: contain;
+                -moz-background-size: contain;
+                -o-background-size: contain;
+                background-size: contain;"></div>
+              <img  src="{{asset('/core/public/post/'.$project->project_logo)}}"> </div> --}}
+              <div class="icon icon-lg icon-shape   shadow-dark text-center " style="margin-bottom:20px;height:50px;width:50px;margin-right:10px;box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px #000 !important;border-radius:50%;background-color: <?php echo luminance($project->project_color, 0.8);?>;">
+                 <div class="material-icons opacity-10 px-3 py-3" style="background: url({{asset('/core/public/post/'.$project->project_logo)}}) no-repeat center; height:66%;width:66%;margin-top:17%; -webkit-background-size: contain;
+                  -moz-background-size: contain;
+                  -o-background-size: contain;
+                  background-size: contain;">
+                </div>
+              </div>
             @endforeach
      {{$pro->links('vendor.pagination.custom2')}}
    
@@ -188,7 +219,7 @@ function time_elapsed_string($datetime, $full = false) {
     var elements = document.getElementsByClassName('ics'); // get all elements
 	for(var i = 0; i < elements.length; i++){
 		elements[i].style.backgroundColor = "#ffffff";
-        elements[i].style.padding = "7px";
+        elements[i].style.padding = "10px";
 	}
     _iconId.style.background=color;
     _iconId.style.padding = "14px";
@@ -214,7 +245,7 @@ $(".links0").click(function() {
     var elements = document.getElementsByClassName('ics'); // get all elements
 	for(var i = 0; i < elements.length; i++){
 		elements[i].style.backgroundColor = "#ffffff";
-        elements[i].style.padding = "7px";
+        elements[i].style.padding = "10px";
 	}
 
     $(".icon0").addClass("highlight0");

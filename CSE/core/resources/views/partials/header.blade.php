@@ -16,9 +16,9 @@
         <i class="fe fe-text-align-left"></i>
     </a>
 
-    <div class="top-nav-search">
+    {{-- <div class="top-nav-search">
         <marquee><p style="font-size: 20px; text-decoration: none;margin-right: 30px;  margin-top: 15px">Developed with 💖. The future is CodLogic &#128522;.</p></marquee>
-    </div>
+    </div> --}}
 
 
     <!-- Mobile Menu Toggle -->

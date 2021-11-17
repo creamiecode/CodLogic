@@ -45,12 +45,18 @@
                                             <th>Project Icon</th>
                                             <th>Project logo</th>
                                           
+                                          
                                             <th>Date Uploaded</th>
+                                            <th>Last Update</th>
                                             <th>Action</th>
 
                                         </tr>
                                         </thead>
                                         @foreach($pro as $project)
+                                        <?php 
+                                        $temp_created = explode(' ',$project->created_at);
+                                        $temp_update = explode(' ',$project->updated_at);
+                                        ?>
                                             <tbody>
                                                 <tr>
                                                     <td> <a>{{$project->project_title}}</a> </td>
@@ -60,7 +66,8 @@
                                                     <td>
                                                             <img src="{{ asset('/core/public/post/'. $project->project_logo) }}" alt="User Image" height="50" >
                                                     </td>
-                                                    <td> <a>{{$project->created_at}}</a> </td>
+                                                    <td> <a>{{$temp_created[0]}}</a> </td>
+                                                    <td> <a>{{$temp_update[0]}}</a> </td>
                                                     <td><a href="{{url('/EditProject/'.$project->id)}}" class="fa fa-edit btn btn-success"></a> <a href="{{url('/DeleteProject/'.$project->id)}}" class="fa fa-trash btn btn-danger"></a></td>
                                                 </tr>
                                             </tbody>

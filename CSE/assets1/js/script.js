@@ -7,3 +7,15 @@ var LightenColor = function(color, percent) {
 
     return (0x1000000 + (R < 255 ? R < 1 ? 0 : R : 255) * 0x10000 + (B < 255 ? B < 1 ? 0 : B : 255) * 0x100 + (G < 255 ? G < 1 ? 0 : G : 255)).toString(16).slice(1);
 };
+
+// Query the elements
+const iframeEle = document.getElementById('frame');
+const loadingEle = document.getElementById('loading');
+
+iframeEle.addEventListener('load', function() {
+    // Hide the loading indicator
+    loadingEle.style.display = 'none';
+
+    // Bring the iframe back
+    iframeEle.style.opacity = 1;
+});

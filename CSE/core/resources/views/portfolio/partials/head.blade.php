@@ -20,4 +20,6 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="{{asset('./assets2/css/material-dashboard.css?v=3.0.0')}}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{asset('./assets1/css/style.scss')}}">
+
 </head>
