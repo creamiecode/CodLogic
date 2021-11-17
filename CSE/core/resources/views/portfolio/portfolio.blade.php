@@ -27,7 +27,34 @@ function luminance($hexcolor, $percent)
 }
  
 
-$col = "#ff0000";
+function time_elapsed_string($datetime, $full = false) {
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
 ?>
 <section id="homeSection">
  
@@ -42,9 +69,9 @@ $col = "#ff0000";
                     @foreach($pro as $project)
 
                     <div class="col-lg-4 col-md-6 mt-4 mb-4">
-                      <div class="card">
+                      <div class="card" onclick="buttonClick('iconId{{$project->id}}','<?php echo luminance($project->project_color, 0.5);?>','{{$project->project_link}}')">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 bg-transparent">
-                          <div class="border-radius-lg py-3 pe-1" style="background-color: <?php echo luminance($project->project_color, 0.8);?>;box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px <?php echo luminance($project->project_color, 0.1);?> !important; }">
+                          <div class="border-radius-lg py-3 pe-1" style="background-color: <?php echo luminance($project->project_color, 0.8);?>;box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px #000 !important; }">
                             <div class="chart align-items-center">
                               
                                 <div style="height: 170px;text-align:center;">
@@ -61,56 +88,22 @@ $col = "#ff0000";
                           </div>
                         </div>
                         <div class="card-body">
-                          <h6 class="mb-0 ">{{$project->project_title}}</h6>
-                          <p class="text-sm ">Lorem, ipsum dolor sit ipsum!</p>
-                          <hr class="dark horizontal">
+                          <h3 class="mb-0 ">{{$project->project_title}}</h3>
+                           <hr class="dark horizontal">
                           <div class="d-flex ">
                             <i class="material-icons text-sm my-auto me-1">schedule</i>
-                            <p class="mb-0 text-sm"> updated 2 days ago </p>
+                            <p class="mb-0 text-sm"> updated <?php
+                  
+                           $date = $project->updated_at ."";
+
+                           $_date = time_elapsed_string($date);
+                    
+                            echo $_date =="1 day ago" ? "Yesterday": $_date?> </p>
                           </div>
                         </div>
                       </div>
                     </div>
-                    {{-- <div class="col-lg-4 col-md-6 mt-4 mb-4">
-                      <div class="card  ">
-                        <div class="card-header p-0 position-relative mt-n4 mx-3 bg-transparent">
-                          <div class="bg-gradient-success shadow-success border-radius-lg py-3 pe-1">
-                            <div class="chart">
-                              <canvas id="chart-line" class="chart-canvas" height="170"></canvas>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="card-body">
-                          <h6 class="mb-0 "> Daily Sales </h6>
-                          <p class="text-sm "> (<span class="font-weight-bolder">+15%</span>) increase in today sales. </p>
-                          <hr class="dark horizontal">
-                          <div class="d-flex ">
-                            <i class="material-icons text-sm my-auto me-1">schedule</i>
-                            <p class="mb-0 text-sm"> updated 4 min ago </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-lg-4 mt-4 mb-3">
-                      <div class="card ">
-                        <div class="card-header p-0 position-relative mt-n4 mx-3 bg-transparent">
-                          <div class="bg-gradient-dark shadow-dark border-radius-lg py-3 pe-1">
-                            <div class="chart">
-                              <canvas id="chart-line-tasks" class="chart-canvas" height="170"></canvas>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="card-body">
-                          <h6 class="mb-0 ">Completed Tasks</h6>
-                          <p class="text-sm ">Last Campaign Performance</p>
-                          <hr class="dark horizontal">
-                          <div class="d-flex ">
-                            <i class="material-icons text-sm my-auto me-1">schedule</i>
-                            <p class="mb-0 text-sm">just updated</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div> --}}
+                    
 
                     @endforeach
                   </div>
@@ -137,11 +130,11 @@ $col = "#ff0000";
 </section>
 
 <section id="iframeSection">
-    <iframe src="" id="frame" name="myFrame" style="width: 100%;height: 100vh;"></iframe>
+    <iframe id="frame" name="myFrame" style="width: 100%;height: 100vh;"></iframe>
 </section>
 
 
-<nav class="bottomNav" id="frame"  >
+<nav class="bottomNav"    >
 
  
 
@@ -150,7 +143,7 @@ $col = "#ff0000";
             @foreach($pro as $project)
     
  
-            <a onclick="buttonClick('iconId{{$project->id}}','<?php echo luminance($project->project_color, 0.5);?>')" id="iconId{{$project->id}}" class="ics" href="{{$project->project_link}}" style="background-color: <?php echo luminance($project->project_color, 0.8);?>;border-radius:50%;padding: 7px;,margin-left:10px;margin-right:10px;margin-bottom:25px;text-align:centre"  target="myFrame"><img  src="{{asset('/core/public/post/'.$project->project_icon)}}"> </a>
+            <a onclick="buttonClick('iconId{{$project->id}}','<?php echo luminance($project->project_color, 0.5);?>','{{$project->project_link}}')" id="iconId{{$project->id}}" class="ics"  style="background-color: <?php echo luminance($project->project_color, 0.8);?>;border-radius:50%;padding: 7px;,margin-left:10px;margin-right:10px;margin-bottom:25px;text-align:centre"  target="myFrame"><img  src="{{asset('/core/public/post/'.$project->project_icon)}}"> </a>
             @endforeach
      {{$pro->links('vendor.pagination.custom2')}}
    
@@ -178,15 +171,19 @@ $col = "#ff0000";
 
 
 <script>
-    function buttonClick(plc,color){
+    function buttonClick(plc,color,llink){
+      
     var _iframe = document.getElementById("iframeSection");
     var _home = document.getElementById("homeSection");
     var _frame = document.getElementById("frame");
-    var _iconId = document.getElementById(plc);
+     var _iconId = document.getElementById(plc);
     var _iconClass = document.getElementsByClassName('ics');
+    $(".icon0").removeClass("highlight0");
+  
+   
     _iframe.style.display = "block";
     _home.style.display = "none";
-    _frame.src = "http://192.168.100.2/sidlogdev/";
+  
    
     var elements = document.getElementsByClassName('ics'); // get all elements
 	for(var i = 0; i < elements.length; i++){
@@ -195,12 +192,16 @@ $col = "#ff0000";
 	}
     _iconId.style.background=color;
     _iconId.style.padding = "14px";
-    $(".icon0").removeClass("highlight0");
+    _frame.src = llink;
+  
       
 }
-  
+ 
 $(document).ready(function(){
         $(".icon0").addClass("highlight0");
+
+        
+ 
 
 $(".links0").click(function() {
 
