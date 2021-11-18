@@ -46,19 +46,13 @@
                             <div class="form-group row">
                                 <label class="col-form-label col-md-2">Project Color</label>
                                 <div class="col-md-10">
-                                    {{-- <input type="text" name="color" class="form-control" placeholder="#ffa500" required> --}}
-                                    
+                                     
                                         <label for="favcolor">Select color:</label>
                                         <input type="color" id="favcolor" name="color" value="#ffa500"><br><br>
                                    
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-form-label col-md-2">Project Icon</label>
-                                <div class="col-md-10">
-                                    <input class="form-control" name="icon" type="file" required>
-                                </div>
-                            </div>
+                            
                             <div class="form-group mb-0 row">
                                 <label class="col-form-label col-md-2">Project Logo</label>
                                 <div class="col-md-10">

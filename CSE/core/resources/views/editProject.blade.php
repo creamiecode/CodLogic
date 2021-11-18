@@ -56,14 +56,7 @@
                                
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-form-label col-md-2">Project Icon</label>
-                            <div class="col-md-10">
-                                <img src="{{ asset('/core/public/post/'. $project->project_icon) }}" alt="User Image" height="50">
-                                <h4 style="font-size: 14px;">{{$project->project_icon}}</h4>
-                                <input class="form-control" name="icon" type="file" required>
-                            </div>
-                        </div>
+                       
                         <div class="form-group mb-0 row">
                             <label class="col-form-label col-md-2">Project Logo</label>
                             <div class="col-md-10">

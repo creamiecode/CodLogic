@@ -18,8 +18,7 @@ class CreateProjectsTable extends Migration
             $table->string('project_title');
             $table->string('project_link');
             $table->string('project_logo');
-            $table->string('project_icon');
-            $table->string('project_color');
+             $table->string('project_color');
             $table->timestamps();
         });
     }

@@ -17,17 +17,7 @@
 
         <div class="content container-fluid">
 
-            <!-- Page Header -->
-{{--            <div class="page-header">--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-sm-12">--}}
-{{--                        <h3 class="page-title">Welcome Admin!</h3>--}}
-{{--                       --}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-            <!-- /Page Header -->
-
+ 
             <div class="row">
                 <div class="col-xl-3 col-sm-6 col-12">
                     <div class="card bg-info">
@@ -52,29 +42,7 @@
 
                 </div>
 
-
-{{--                <div class="col-xl-3 col-sm-6 col-12">--}}
-{{--                    <div class="card">--}}
-{{--                        <div class="card-body">--}}
-{{--                            <div class="dash-widget-header">--}}
-{{--										<span class="dash-widget-icon text-warning border-warning">--}}
-{{--											<i class="fe fe-folder"></i>--}}
-{{--										</span>--}}
-{{--                                <div class="dash-count">--}}
-{{--                                    <h3>$62523</h3>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="dash-widget-info">--}}
-
-{{--                                <h6 class="text-muted">Revenue</h6>--}}
-{{--                                <div class="progress progress-sm">--}}
-{{--                                    <div class="progress-bar bg-warning w-50"></div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
+ 
 
             </div>
 
@@ -96,8 +64,7 @@
                                         <th>Project title</th>
                                         <th>Project link</th>
                                         <th>Project Color</th>
-                                        <th>Project Icon</th>
-                                        <th>Project logo</th>
+                                         <th>Project logo</th>
                                       
                                       
                                         <th>Date Uploaded</th>
@@ -116,8 +83,7 @@
                                                 <td> <a>{{$project->project_title}}</a> </td>
                                                 <td> <a>{{$project->project_link}}</a> </td>
                                                 <td> <div style="height: 20px;width:20px;background-color:{{$project->project_color}}"></div> </td>
-                                                <td> <a  style=" border-radius:50%;padding: 7px;,margin-left:10px;margin-right:10px;margin-bottom:25px;text-align:centre"   ><img  src="{{asset('/core/public/post/'.$project->project_icon)}}"> </a> </td>
-                                                <td>
+                                                 <td>
                                                         <img src="{{ asset('/core/public/post/'. $project->project_logo) }}" alt="User Image" height="50" >
                                                 </td>
                                                 <td> <a>{{$temp_created[0]}}</a> </td>

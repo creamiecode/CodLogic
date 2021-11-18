@@ -44,20 +44,16 @@ class ProjectsController extends Controller
         Image::make($image)->save(public_path('/post/'.$filename));
 
 
-        $image2      = $request->file('icon');
+ 
+ 
 
-        $filename2    = $image2->getClientOriginalName();
-
-
-        Image::make($image2)->save(public_path('/post/'.$filename2));
-
+ 
 
         $input = [];
         $input['project_title'] = $request->title;
         $input['project_link'] = $request->link;
         $input['project_color'] = $request->color;
-        $input['project_icon'] = $filename2;
-        $input['project_logo'] = $filename;
+         $input['project_logo'] = $filename;
 
         $yourdat = projects::create($input);
 
@@ -78,19 +74,15 @@ class ProjectsController extends Controller
 
         Image::make($image)->save(public_path('/post/'.$filename));
 
-        $image2      = $request->file('icon');
-
-        $filename2    = $image2->getClientOriginalName();
-
-        Image::make($image2)->save(public_path('/post/'.$filename2));
-
+ 
+ 
+ 
         $project =  projects::find($request->id);
 
         $project->project_title = $request->title;
         $project->project_link = $request->link;
         $project->project_color = $request->color;
-        $project->project_icon = $filename2;
-        $project->project_logo = $filename;
+         $project->project_logo = $filename;
 
 
         $yourdat =  $project->save();
