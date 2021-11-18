@@ -9,13 +9,13 @@ var LightenColor = function(color, percent) {
 };
 
 // Query the elements
-const iframeEle = document.getElementById('frame');
-const loadingEle = document.getElementById('loading');
+// const iframeEle = document.getElementById('frame');
+// const loadingEle = document.getElementById('loading');
 
-iframeEle.addEventListener('load', function() {
-    // Hide the loading indicator
-    loadingEle.style.display = 'none';
+// iframeEle.addEventListener('load', function() {
+//     // Hide the loading indicator
+//     loadingEle.style.display = 'none';
 
-    // Bring the iframe back
-    iframeEle.style.opacity = 1;
-});
+//     // Bring the iframe back
+//     iframeEle.style.opacity = 1;
+// });

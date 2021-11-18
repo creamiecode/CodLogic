@@ -69,7 +69,7 @@ function time_elapsed_string($datetime, $full = false) {
                     @foreach($pro as $project)
 
                     <div class="col-lg-4 col-md-6 mt-4 mb-4">
-                      <div class="card" onclick="buttonClick('iconId{{$project->id}}','<?php echo luminance($project->project_color, 0.5);?>','{{$project->project_link}}')">
+                      <div class="card" onclick="buttonClick('iconId{{$project->id}}','{{$project->project_link}}')">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 bg-transparent">
                           <div class="border-radius-lg py-3 pe-1" style="background-color: <?php echo luminance($project->project_color, 0.8);?>;box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px #000 !important; }">
                             <div class="chart align-items-center">
@@ -131,7 +131,7 @@ function time_elapsed_string($datetime, $full = false) {
 
 <section id="iframeSection">
  
-  <div class="loader" id="loading">
+  {{-- <div class="loader" id="loading">
     <svg viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <circle class="load one" cx="60" cy="60" r="40" />
       <circle class="load two" cx="60" cy="60" r="40" />
@@ -142,7 +142,7 @@ function time_elapsed_string($datetime, $full = false) {
         <circle class="point three" cx="75" cy="70" r="5" />
       </g>
     </svg>
-  </div>
+  </div> --}}
     <iframe id="frame" name="myFrame" style="width: 100%;height: 100vh;"></iframe>
 </section>
 
@@ -168,7 +168,7 @@ function time_elapsed_string($datetime, $full = false) {
                 -o-background-size: contain;
                 background-size: contain;"></div>
               <img  src="{{asset('/core/public/post/'.$project->project_logo)}}"> </div> --}}
-              <div class="icon icon-lg icon-shape   shadow-dark text-center " style="margin-bottom:20px;height:50px;width:50px;margin-right:10px;box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px #000 !important;border-radius:50%;background-color: <?php echo luminance($project->project_color, 0.8);?>;">
+              <div onclick="buttonClick('iconId{{$project->id}}','{{$project->project_link}}')" id="iconId{{$project->id}}" class="ics icon icon-lg icon-shape   shadow-dark text-center " style="margin-bottom:20px;height:45px;width:45px;margin-right:10px;box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px #000 !important;border-radius:50%;background-color: <?php echo luminance($project->project_color, 0.8);?>;">
                  <div class="material-icons opacity-10 px-3 py-3" style="background: url({{asset('/core/public/post/'.$project->project_logo)}}) no-repeat center; height:66%;width:66%;margin-top:17%; -webkit-background-size: contain;
                   -moz-background-size: contain;
                   -o-background-size: contain;
@@ -202,7 +202,7 @@ function time_elapsed_string($datetime, $full = false) {
 
 
 <script>
-    function buttonClick(plc,color,llink){
+    function buttonClick(plc, llink){
       
     var _iframe = document.getElementById("iframeSection");
     var _home = document.getElementById("homeSection");
@@ -218,11 +218,11 @@ function time_elapsed_string($datetime, $full = false) {
    
     var elements = document.getElementsByClassName('ics'); // get all elements
 	for(var i = 0; i < elements.length; i++){
-		elements[i].style.backgroundColor = "#ffffff";
-        elements[i].style.padding = "10px";
+    elements[i].style.width = "45px";
+         elements[i].style.height = "45px";
 	}
-    _iconId.style.background=color;
-    _iconId.style.padding = "14px";
+     _iconId.style.width = "55px";
+     _iconId.style.height = "55px";
     _frame.src = llink;
   
       
@@ -244,8 +244,8 @@ $(".links0").click(function() {
 
     var elements = document.getElementsByClassName('ics'); // get all elements
 	for(var i = 0; i < elements.length; i++){
-		elements[i].style.backgroundColor = "#ffffff";
-        elements[i].style.padding = "10px";
+         elements[i].style.width = "45px";
+         elements[i].style.height = "45px";
 	}
 
     $(".icon0").addClass("highlight0");
