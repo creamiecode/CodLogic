@@ -61,10 +61,10 @@
                                 <table class="table table-hover table-center mb-0">
                                     <thead>
                                     <tr>
-                                        <th>Project title</th>
-                                        <th>Project link</th>
-                                        <th>Project Color</th>
-                                         <th>Project logo</th>
+                                        <th>Title</th>
+                                        <th>URL</th>
+                                        <th>Color</th>
+                                         <th>Logo</th>
                                       
                                       
                                         <th>Date Uploaded</th>

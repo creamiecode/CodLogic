@@ -10,8 +10,8 @@ body {
     width: 100%;
     text-align: center;
     background: transparent;
-    overflow: auto;
-    height: auto;
+    bottom: 0;
+    height: 10vh;
 }
 
 .mainContent {
@@ -479,25 +479,6 @@ body {
     height: 100%;
 }
 
-#con>* {
-    visibility: visible;
-}
-
-#con>* {
-    transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
-}
-
-#con:hover>* {
-    opacity: 0.4;
-    transform: scale(0.9);
-}
-
-#con>*:hover {
-    opacity: 1;
-    transform: scale(1);
-    transition-delay: 0ms, 0ms;
-}
-
 #con {
     height: 100vh;
 }
@@ -549,25 +530,6 @@ body {
     text-shadow: none;
     background-color: #d6ff22;
     color: #fff;
-}
-
-.tiles>* {
-    visibility: visible;
-}
-
-.tiles>* {
-    transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
-}
-
-.tiles:hover>* {
-    opacity: 0.4;
-    transform: scale(0.9);
-}
-
-.tiles>*:hover {
-    opacity: 1;
-    transform: scale(1);
-    transition-delay: 0ms, 0ms;
 }
 
 #iframeSection {

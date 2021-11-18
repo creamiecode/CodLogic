@@ -88,7 +88,10 @@ function time_elapsed_string($datetime, $full = false) {
                             <div class="chart align-items-center">
                               
                                 <div style="height: 170px;text-align:center;">
-                                  <div class="icon " style="  height: 100%; width: 100%;   background-size: cover;text-align:center; background: url('{{ asset('/core/public/post/'. $project->project_logo) }}') center center no-repeat">  
+                                  <div class="icon " style="  height: 100%; width: 100%;    text-align:center; background: url('{{ asset('/core/public/post/'. $project->project_logo) }}') no-repeat center;-webkit-background-size: contain;
+                                    -moz-background-size: contain;
+                                    -o-background-size: contain;
+                                    background-size: contain;">  
                                   </div>
                                 </div>
 
@@ -162,7 +165,7 @@ function time_elapsed_string($datetime, $full = false) {
 </section>
 
 
-<nav class="bottomNav"    >
+<nav class="bottomNav"  id="bottonNavId"  >
 
  
 
@@ -193,7 +196,14 @@ function time_elapsed_string($datetime, $full = false) {
             @endforeach
      {{$pro->links('vendor.pagination.custom2')}}
    
-</nav>
+ 
+
+
+  
+     {{-- <div onclick="floatClick()" class="px-3 py-2" style="background-color:grey;box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.14), 0 7px 10px -5px #000 !important;border-radius:50%;float:right;margin-top:30px;margin-right:10px">
+      <i class="material-icons py-2">settings</i>
+     </div> --}}
+    </nav>
 
 
 
@@ -263,7 +273,16 @@ function removeLoader(){
   
       
 }
- 
+function floatClick(){
+      
+      var _bottomNav = document.getElementById("bottomNavId");
+    
+     
+      _bottomNav.style.display = "none";
+  
+    
+        
+  }
 $(document).ready(function(){
         $(".icon0").addClass("highlight0");
         var _frame = document.getElementById("frame");

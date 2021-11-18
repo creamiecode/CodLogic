@@ -89,7 +89,7 @@ class ProjectsController extends Controller
 
         if ($yourdat){
 
-            $projects['pro'] = projects::orderBy('id', 'DESC')->get();
+            $projects['pro'] =  projects::orderBy('id', 'DESC')->simplePaginate(6);
             return view('allProjects')->with($projects)->with('successMsg','Project updated successfully');
 
         }

@@ -32,14 +32,14 @@
                     <form action="{{route('updateProject')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
-                            <label class="col-form-label col-md-2">Project Title</label>
+                            <label class="col-form-label col-md-2">Title</label>
                             <div class="col-md-10">
                                 <input type="text" name="title" value="{{$project->project_title}}" class="form-control form-control-lg" placeholder="Title" required>
                                 <input type="hidden" name="id" value="{{$project->id}}" class="form-control form-control-lg" placeholder="Title" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-form-label col-md-2">Project Link</label>
+                            <label class="col-form-label col-md-2">URL</label>
                             <div class="col-md-10">
                                 <input type="text" name="link" value="{{$project->project_link}}" class="form-control" placeholder="Link" required>
                             </div>
@@ -47,7 +47,7 @@
 
                   
                         <div class="form-group row">
-                            <label class="col-form-label col-md-2">Project Color</label>
+                            <label class="col-form-label col-md-2">Color</label>
                             <div class="col-md-10">
                                 {{-- <input type="text" name="color" class="form-control" placeholder="#ffa500" required> --}}
                                 
@@ -58,7 +58,7 @@
                         </div>
                        
                         <div class="form-group mb-0 row">
-                            <label class="col-form-label col-md-2">Project Logo</label>
+                            <label class="col-form-label col-md-2">Logo</label>
                             <div class="col-md-10">
                                 <img src="{{ asset('/core/public/post/'. $project->project_logo) }}" alt="User Image" height="50">
                                 <h4 style="font-size: 14px;">{{$project->project_logo}}</h4>
