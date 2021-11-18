@@ -22,10 +22,10 @@
   <link id="pagestyle" href="{{asset('./assets2/css/material-dashboard.css?v=3.0.0')}}" rel="stylesheet" />
   <style>
   
-    /* body {
-    position: relative; 
-} */
+   
 
+
+ 
 .loader {
     position: absolute;  
     top: 50%;
@@ -115,6 +115,37 @@
             transform: rotate(360deg);
         }
     }
-    
+    .loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+#preloader {
+  overflow: hidden;
+  background:   rgb(42, 44, 57, 0.2);;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: fixed;
+   color: #30271c;
+   height: 100vh;
+   width: 100%;
+  z-index: 5000;
+   text-align: center;
+
+ }
+
+
+.loader {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  top: 50%;
+  margin-top: -20px;
+  }
+
 </style>
 </head>
