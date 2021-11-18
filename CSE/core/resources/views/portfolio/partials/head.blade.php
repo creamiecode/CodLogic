@@ -20,6 +20,101 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <!-- CSS Files -->
   <link id="pagestyle" href="{{asset('./assets2/css/material-dashboard.css?v=3.0.0')}}" rel="stylesheet" />
-  <link rel="stylesheet" href="{{asset('./assets1/css/style.scss')}}">
+  <style>
+  
+    /* body {
+    position: relative; 
+} */
 
+.loader {
+    position: absolute;  
+    top: 50%;
+    left: 50%;
+    width: 150px;
+        height: 150px;
+    margin-left: -39px;  
+    margin-top: -78px;  
+}
+
+    .loaderContainer {
+        
+        left: 0px;
+        top: 0px;
+        width: 100%;
+        height: 100vh;
+        z-index: 9999;
+        background-color: rgb(0, 0, 0, 0.9);
+          }
+    
+    svg {
+        width: 90%;
+        fill: none;
+    }
+    
+    .load {
+        transform-origin: 50% 50%;
+        stroke-dasharray: 570;
+        stroke-width: 20px;
+    }
+    
+    .load.one {
+        stroke: #554d73;
+        animation: load 1.5s infinite;
+    }
+    
+    .load.two {
+        stroke: #a496a4;
+        animation: load 1.5s infinite;
+        animation-delay: 0.1s;
+    }
+    
+    .load.three {
+        stroke: #a5a7bb;
+        animation: load 1.5s infinite;
+        animation-delay: 0.2s;
+    }
+    
+    .point {
+        animation: bounce 1s infinite ease-in-out;
+    }
+    
+    .point.one {
+        fill: #a5a7bb;
+        animation-delay: 0s;
+    }
+    
+    .point.two {
+        fill: #a496a4;
+        animation-delay: 0.1s;
+    }
+    
+    .point.three {
+        fill: #554d73;
+        animation-delay: 0.2s;
+    }
+    
+    @keyframes bounce {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+    
+    @keyframes load {
+        0% {
+            stroke-dashoffset: 570;
+        }
+        50% {
+            stroke-dashoffset: 530;
+        }
+        100% {
+            stroke-dashoffset: 570;
+            transform: rotate(360deg);
+        }
+    }
+    
+</style>
 </head>

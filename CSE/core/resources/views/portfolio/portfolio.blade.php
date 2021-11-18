@@ -4,8 +4,8 @@
 @include('portfolio.partials.head')
 
 <body>
- 
 
+ 
  
 
 <?php
@@ -129,9 +129,10 @@ function time_elapsed_string($datetime, $full = false) {
     
 </section>
 
-<section id="iframeSection">
+<section id="iframeSection" style=" position: relative; ">
  
-  {{-- <div class="loader" id="loading">
+ <div class="loaderContainer  text-center" style="text-align: center" id="loaderId">
+  <div class="loader" >
     <svg viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg">
       <circle class="load one" cx="60" cy="60" r="40" />
       <circle class="load two" cx="60" cy="60" r="40" />
@@ -142,7 +143,8 @@ function time_elapsed_string($datetime, $full = false) {
         <circle class="point three" cx="75" cy="70" r="5" />
       </g>
     </svg>
-  </div> --}}
+  </div>
+ </div>
     <iframe id="frame" name="myFrame" style="width: 100%;height: 100vh;"></iframe>
 </section>
 
@@ -185,6 +187,18 @@ function time_elapsed_string($datetime, $full = false) {
 
 
 <script type="text/javascript">
+
+const iframeEle = document.getElementById('frame');
+const loadingEle = document.getElementById('loaderId');
+
+iframeEle.addEventListener('load', function() {
+    // Hide the loading indicator
+    loadingEle.style.display = 'none';
+
+    // Bring the iframe back
+    iframeEle.style.display = 'block';
+    iframeEle.style.opacity = 1;
+});
     $(document).ready(function(){
         // Set div display to none
         $(".link_project").click(function(){
@@ -230,6 +244,8 @@ function time_elapsed_string($datetime, $full = false) {
  
 $(document).ready(function(){
         $(".icon0").addClass("highlight0");
+        var _frame = document.getElementById("frame");
+        _frame.style.display = 'none';
 
         
  
